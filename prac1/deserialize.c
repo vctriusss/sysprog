@@ -20,7 +20,10 @@ int main(int argc, char *argv[]) {
     Union *uPtr;
     uPtr = (Union*) malloc(1 * sizeof(Union));
 
-    err = ReadFromFile(filePath, uPtr->Buffer, sizeof(Union));
+    char *encodedBuff;
+    encodedBuff = (char*) malloc(sizeof(Union) * 1);
+
+    err = ReadFromFile(filePath, encodedBuff, sizeof(Union));
 
     if (err != 0) {
         switch (err) {
@@ -32,12 +35,15 @@ int main(int argc, char *argv[]) {
         }
         
         free(uPtr);
+        free(encodedBuff);
         return err;
     }
 
-    DecodeBuffer(uPtr->Buffer, uPtr->Buffer, sizeof(Union), DecodeByte);
+    DecodeBuffer(encodedBuff, uPtr->Buffer, sizeof(Union), DecodeByte);
 
     printf("Airport name: %s\nAirport code: %s\n", uPtr->airport.Name, uPtr->airport.Code);
     
-    return 0;
+    free(uPtr);
+    free(encodedBuff);
+    return err;
 }

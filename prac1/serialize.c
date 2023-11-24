@@ -20,6 +20,9 @@ int main(int argc, char *argv[]) {
     Union *uPtr;
     uPtr = (Union*) malloc(1 * sizeof(Union));
 
+    char *encodedBuff;
+    encodedBuff = (char*) malloc(sizeof(Union) * 1);
+
     printf("Enter airport name (max %d): ", MAX_SIZE);
     err = Scan(uPtr->airport.Name, MAX_SIZE, false);
 
@@ -37,6 +40,7 @@ int main(int argc, char *argv[]) {
         }
 
         free(uPtr);
+        free(encodedBuff);
         return err;
     }
 
@@ -58,12 +62,13 @@ int main(int argc, char *argv[]) {
         }
 
         free(uPtr);
+        free(encodedBuff);
         return err;
     }
 
-    EncodeBuffer(uPtr->Buffer, uPtr->Buffer, sizeof(Union), EncodeByte);
+    EncodeBuffer(uPtr->Buffer, encodedBuff, sizeof(Union), EncodeByte);
 
-    err = WriteToFile(filePath, uPtr->Buffer, sizeof(Union));
+    err = WriteToFile(filePath, encodedBuff, sizeof(Union));
         if (err != 0) {
         switch (err) {
         case ERR_OPENING_FILE:
@@ -71,9 +76,11 @@ int main(int argc, char *argv[]) {
         }
         
         free(uPtr);
+        free(encodedBuff);
         return err;
     }
 
     free(uPtr);
+    free(encodedBuff);
     return 0;
 }
