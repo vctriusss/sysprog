@@ -1,4 +1,4 @@
-HEADERS = encode.h io.h types.h error.h
+HEADERS = encode.h io.h error.h types.h
 
 DEFAULT = encode.c io.c error.c
 

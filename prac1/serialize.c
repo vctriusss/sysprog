@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
 
     err = GetFilePath(filePath, argc, argv);
     if (err == ERR_INVALID_FLAG) {
-        RaiseError("Run program like: ./serialize -f <file_path_for_serialization>");
+        RaiseError("Run program like: bin/serialize -f <file_path_for_serialization>");
         return err;
     }
 
@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
             RaiseError("Airport code is too short");
             break;
         case ERR_DEPRECATED_CHAR:
-            RaiseError("Airport code contains deprecated chars (possible are [A-Za-z0-9])");
+            RaiseError("Airport code contains deprecated chars (possible are [A-Za-z])");
             break;
         }
 

@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
 
     err = GetFilePath(filePath, argc, argv);
     if (err == ERR_INVALID_FLAG) {
-        RaiseError("Run program like: ./deserialize -f <file_path_for_deserialization>");
+        RaiseError("Run program like: bin/deserialize -f <file_path_for_deserialization>");
         return err;
     }
 
