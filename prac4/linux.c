@@ -63,8 +63,8 @@ int main(int argc, char* argv[]) {
     sprintf(totalBytesStr, "%zi", totalBytesRead);
 
     char* msgs[] = {"File read successfully!\n", 
-                    "Total size of ", filename, " is ", totalBytesStr, " bytes\n"};
-    _print_many(STDOUT_FILENO, msgs, 6);
+                    "Total size of file is ", totalBytesStr, " bytes\n"};
+    _print_many(STDOUT_FILENO, msgs, 4);
 
     free(buff);
     close(file);

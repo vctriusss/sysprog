@@ -25,7 +25,7 @@ VOID _perror(HANDLE hStdErr, LPSTR message) {
         FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER,
         NULL,
         GetLastError(),
-        MAKELANGID(LANG_ENGLISH, SUBLANG_DEFAULT),
+        MAKELANGID(LANG_RUSSIAN, SUBLANG_DEFAULT),
         (LPSTR)&errMsg,
         0,
         NULL);
@@ -73,8 +73,8 @@ int main(int argc, char* argv[]) {
     sprintf(totalBytesStr, "%zi", dwTotalBytesRead);
 
     LPSTR msgs[] = {"File read successfully!\n", 
-                    "Total size of ", filename, " is ", totalBytesStr, " bytes\n"};
-    _print_many(hStdOut, msgs, 6);
+                    "Total size of file is ", totalBytesStr, " bytes\n"};
+    _print_many(hStdOut, msgs, 4);
     
     free(buff);
     CloseHandle(hFile);
