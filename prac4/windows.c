@@ -25,7 +25,7 @@ VOID _perror(HANDLE hStdErr, LPSTR message) {
         FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER,
         NULL,
         GetLastError(),
-        MAKELANGID(LANG_RUSSIAN, SUBLANG_DEFAULT),
+        MAKELANGID(LANG_ENGLISH, SUBLANG_DEFAULT),
         (LPSTR)&errMsg,
         0,
         NULL);
