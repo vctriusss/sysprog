@@ -51,7 +51,6 @@ func main() {
 
 		mu.Lock()
 		sum = ScanVals(res_mem, ParseFloat, 1)[0]
-		mu.Unlock()
 
 		results := ScanVals(nums_mem, func(s string) float64 {
 			n := ParseUint(s)
@@ -63,7 +62,6 @@ func main() {
 		}
 		res_mem.Reset()
 
-		mu.Lock()
 		WriteVals(res_mem, []string{fmt.Sprintf("%10.10f", sum)})
 		mu.Unlock()
 	}
