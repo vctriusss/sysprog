@@ -119,15 +119,15 @@ int parent_shm(int N, int totalNums, FILE* file) {
         }
     }
     if (shm_unlink("/nums") == -1) {
-        perrror("Failed to unlink shared mem");
+        perror("Failed to unlink shared mem");
         return 1;
     }
     if (shm_unlink("/res") == -1) {
-        perrror("Failed to unlink shared mem");
+        perror("Failed to unlink shared mem");
         return 1;
     }
     if (shm_unlink("/mutex") == -1) {
-        perrror("Failed to unlink shared mem");
+        perror("Failed to unlink shared mem");
         return 1;
     };
 

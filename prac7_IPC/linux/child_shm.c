@@ -60,18 +60,9 @@ int main(int argc, char **argv) {
         }
     }
 
-    if (munmap(nums_mem, 0) == -1) {
-        perror("Failed to unmap shared memory");
-        exit(1);
-    }
-    if (munmap(res_mem, 0) == -1) {
-        perror("Failed to unmap shared memory");
-        exit(1);
-    }
-    if (munmap(mu_mem, 0) == -1) {
-        perror("Failed to unmap shared memory");
-        exit(1);
-    }
+    munmap(nums_mem, 0);
+    munmap(res_mem, 0);
+    munmap(mu_mem, 0);
 
     exit(0);
 }
